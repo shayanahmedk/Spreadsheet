@@ -9,8 +9,7 @@ const infixToFunction = {
 };
 // infix evaulation function
 const infixEval = (str, regex) => str.replace(regex,
-    (_match, arg1, operator, arg2) => infixToFunction[operator](parseFloat(arg1), parseFloat(arg2)))
-    ;
+    (_match, arg1, operator, arg2) => infixToFunction[operator](parseFloat(arg1), parseFloat(arg2)));
 
 // function to account for order of operations
 const highPrecedence = (str) => {
@@ -32,8 +31,7 @@ const median = nums => {
     const middle = length / 2 - 1;
     return isEven(length)
         ? average([sorted[middle], sorted[middle + 1]])
-        : sorted[Math.ceil(middle)]
-        ;
+        : sorted[Math.ceil(middle)];
 };
 
 // track all spreadsheet functions
@@ -68,14 +66,12 @@ const applyFunction = (str) => {
 // func to generate numbers
 const range = (start, end) => Array((end - start) + 1)
     .fill(start)
-    .map((element, index) => element + index)
-    ;
+    .map((element, index) => element + index);
 
 // char range function
 const charRange = (start, end) =>
     range(start.charCodeAt(0), end.charCodeAt(0))
-        .map(code => String.fromCharCode(code))
-    ;
+        .map(code => String.fromCharCode(code));
 
 // evaluate formula function
 const evalFormula = (x, cells) => {
@@ -103,7 +99,7 @@ window.onload = () => {
         label.className = "label";
         label.textContent = name;
         container.appendChild(label);
-    }
+    };
 
     const letters = charRange('A', 'J');
     letters.forEach(createLabel);
@@ -119,7 +115,7 @@ window.onload = () => {
             container.appendChild(input);
         });
     });
-}
+};
 
 const update = (event) => {
     const element = event.target;
